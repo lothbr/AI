@@ -1,0 +1,29 @@
+C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\appsettings.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\ABC Algorithm.staticwebassets.endpoints.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\ABC Algorithm.exe
+C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\ABC Algorithm.deps.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\ABC Algorithm.runtimeconfig.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\ABC Algorithm.dll
+C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\ABC Algorithm.pdb
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.AssemblyInfoInputs.cache
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.AssemblyInfo.cs
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\scopedcss\bundle\ABC Algorithm.styles.css
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets\msbuild.ABC Algorithm.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets\msbuild.ABC Algorithm.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets\msbuild.build.ABC Algorithm.props
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ABC Algorithm.props
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ABC Algorithm.props
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.dll
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\refint\ABC Algorithm.dll
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.pdb
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.genruntimeconfig.cache
+C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ref\ABC Algorithm.dll
