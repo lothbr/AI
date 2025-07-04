@@ -2,6 +2,18 @@
 {
     public enum BenchmarkType
     {
-        Sphere, Rastrigin, Ackley, Rosenbrock, Griewank
+        // Basic benchmarks
+        Sphere, 
+        RotatedElliptic, 
+        RotatedBentCigar,
+        RotatedDiscus,
+        DifferentPowers,
+        // Multimodal benchmarks
+        Rosenbrock, 
+        SchafferF7,
+        Ackley, 
+        Weierstrass,
+        Griewank,
+        Rastrigin, 
     }
 }

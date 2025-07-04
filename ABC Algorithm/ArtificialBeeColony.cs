@@ -44,25 +44,55 @@ namespace ABC_Algorithm
             switch (SelectedBenchmark)
             {
                 case BenchmarkType.Sphere:
-                case BenchmarkType.Rastrigin:
+                case BenchmarkType.RotatedElliptic:
                     D = 30;
-                    LowerBound = -5.12;
-                    UpperBound = 5.12;
+                    LowerBound = -100;
+                    UpperBound = 100;
                     break;
-                case BenchmarkType.Ackley:
+                case BenchmarkType.RotatedBentCigar:
                     D = 30;
-                    LowerBound = -32.768;
-                    UpperBound = 32.768;
+                    LowerBound = -100;
+                    UpperBound = 100;
+                    break;
+                case BenchmarkType.RotatedDiscus:
+                    D = 30;
+                    LowerBound = -100;
+                    UpperBound = 100;
+                    break;
+                case BenchmarkType.DifferentPowers:
+                    D = 30;
+                    LowerBound = -100;
+                    UpperBound = 100;
                     break;
                 case BenchmarkType.Rosenbrock:
                     D = 30;
                     LowerBound = -30;
                     UpperBound = 30;
                     break;
+                case BenchmarkType.SchafferF7:
+                    D = 30;
+                    LowerBound = -100;
+                    UpperBound = 100;
+                    break;
+                case BenchmarkType.Ackley:
+                    D = 30;
+                    LowerBound = -32.768;
+                    UpperBound = 32.768;
+                    break;
+                case BenchmarkType.Weierstrass:
+                    D = 30;
+                    LowerBound = -0.5;
+                    UpperBound = 0.5;
+                    break;
                 case BenchmarkType.Griewank:
                     D = 30;
                     LowerBound = -600;
                     UpperBound = 600;
+                    break;
+                case BenchmarkType.Rastrigin:
+                    D = 30;
+                    LowerBound = -5.12;
+                    UpperBound = 5.12;
                     break;
             }
         }
@@ -160,26 +190,92 @@ namespace ABC_Algorithm
                 case BenchmarkType.Sphere:
                     return solution.Sum(x => x * x);
 
-                case BenchmarkType.Rastrigin:
-                    return 10 * D + solution.Sum(x => x * x - 10 * Math.Cos(2 * Math.PI * x));
+                case BenchmarkType.RotatedElliptic:
+                    int n = solution.Length;
+                    double sum = 0.0;
+                    for (int i = 0; i < n; i++)
+                    {
+                        double factor = Math.Pow(1e6, i / (double)(n - 1));
+                        sum += factor * solution[i] * solution[i];
+                    }
+                    return sum;
+                
+                case BenchmarkType.RotatedBentCigar:
+                    double sum = solution[0] * solution[0];
+                    for (int i = 1; i < solution.Length; i++)
+                        sum += 1e6 * solution[i] * solution[i];
+                    return sum;
 
-                case BenchmarkType.Ackley:
-                    double sumSq = solution.Sum(x => x * x);
-                    double sumCos = solution.Sum(x => Math.Cos(2 * Math.PI * x));
-                    return -20 * Math.Exp(-0.2 * Math.Sqrt(sumSq / D)) - Math.Exp(sumCos / D) + 20 + Math.E;
+                case BenchmarkType.RotatedDiscus:
+                    double sum = 1e6 * solution[0] * solution[0];
+                    for (int i = 1; i < solution.Length; i++)
+                        sum += solution[i] * solution[i];
+                    return sum;
+
+                case BenchmarkType.DifferentPowers:
+                    int n = solution.Length;
+                    double sum = 0.0;
+                    for (int i = 0; i < n; i++)
+                    {
+                        double exponent = 2.0 + 4.0 * i / (n - 1.0);
+                        sum += Math.Pow(Math.Abs(solution[i]), exponent);
+                    }
+                    return sum;
 
                 case BenchmarkType.Rosenbrock:
                     double sum = 0;
                     for (int i = 0; i < D - 1; i++)
                         sum += 100 * Math.Pow(solution[i + 1] - solution[i] * solution[i], 2) + Math.Pow(solution[i] - 1, 2);
                     return sum;
+                
+                case BenchmarkType.SchafferF7:
+                    double sum = 0.0;
+                    for (int i = 0; i < solution.Length - 1; i++)
+                        {
+                            double xi = solution[i];
+                            double xi1 = solution[i + 1];
+                            double temp = Math.Sqrt(xi * xi + xi1 * xi1);
+                            sum += Math.Pow(temp, 0.5) + Math.Pow(Math.Sin(50 * Math.Pow(temp, 0.2)), 2);
+                        }
+                    return Math.Pow(sum / (solution.Length - 1), 2);
 
+                case BenchmarkType.Ackley:
+                    double sumSq = solution.Sum(x => x * x);
+                    double sumCos = solution.Sum(x => Math.Cos(2 * Math.PI * x));
+                    return -20 * Math.Exp(-0.2 * Math.Sqrt(sumSq / D)) - Math.Exp(sumCos / D) + 20 + Math.E;
+                
                 case BenchmarkType.Griewank:
                     double sumG = solution.Sum(x => x * x) / 4000.0;
                     double prod = 1;
                     for (int i = 0; i < D; i++)
                         prod *= Math.Cos(solution[i] / Math.Sqrt(i + 1));
                     return 1 + sumG - prod;
+
+                case BenchmarkType.Weierstrass:
+                    int kMax = 20;
+                    double a = 0.5;
+                    double b = 3.0;
+                    int n = solution.Length;
+
+                    double sum = 0.0;
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int k = 0; k <= kMax; k++)
+                        {
+                            sum += Math.Pow(a, k) * Math.Cos(2 * Math.PI * Math.Pow(b, k) * (x[i] + 0.5));
+                        }
+                    }
+
+                    double sum2 = 0.0;
+                    for (int k = 0; k <= kMax; k++)
+                    {
+                        sum2 += Math.Pow(a, k) * Math.Cos(Math.PI * Math.Pow(b, k));
+                    }
+
+                    return sum - n * sum2;
+
+                case BenchmarkType.Rastrigin:
+                    return 10 * D + solution.Sum(x => x * x - 10 * Math.Cos(2 * Math.PI * x));
 
                 default:
                     return double.MaxValue;
