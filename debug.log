@@ -1,2 +1,26 @@
 [0524/182440.377:WARNING:value_store_frontend.cc(47)] Reading mhjfbmdgcfjbbpaeojofohoefgiehjai.alarms from  failed: IO error: .../LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
 [0524/182637.828:ERROR:gpu_init.cc(523)] Passthrough is not supported, GL is disabled, ANGLE is 
+[0704/165742.936:WARNING:value_store_frontend.cc(47)] Reading mhjfbmdgcfjbbpaeojofohoefgiehjai.alarms from  failed: IO error: .../LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0704/165941.089:ERROR:gpu_init.cc(523)] Passthrough is not supported, GL is disabled, ANGLE is 
+[0704/172412.103:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0704/172412.147:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081212.100:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081212.102:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081217.118:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081217.119:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081227.139:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081227.139:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081247.173:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081247.174:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081301.442:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081301.490:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081301.789:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/081301.871:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/181212.281:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/181212.368:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/181217.321:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/181217.416:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/181227.381:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/181227.462:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/181247.431:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.
+[0705/181247.510:WARNING:dns_config_service_win.cc(583)] Failed to read DnsConfig.

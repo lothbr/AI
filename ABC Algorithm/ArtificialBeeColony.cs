@@ -12,7 +12,7 @@ namespace ABC_Algorithm
         static double LowerBound = -5.12;  // Lower bound for solution
         static double UpperBound = 5.12;   // Upper bound for solution
 
-        static BenchmarkType SelectedBenchmark = BenchmarkType.Rastrigin;
+        static BenchmarkType SelectedBenchmark = BenchmarkType.Weierstrass;
 
         static double[][] Foods = new double[FoodNumber][];
         static double[] Fitness = new double[FoodNumber];
@@ -21,21 +21,30 @@ namespace ABC_Algorithm
 
         public void Start()
         {
-            Initialize();
-            ConfigureBenchmark();
-            // Maximum number of cycles
-            for (int cycle = 0; cycle < MaxCycles; cycle++)
+            try
             {
-                EmployedBeePhase();
-                OnlookerBeePhase();
-                ScoutBeePhase();
-                // Print best solution
-                int best = GetBestFoodIndex();
-                Console.WriteLine($"Cycle {cycle + 1}, Best fitness = {Fitness[best]:F5}");
+                Initialize();
+                ConfigureBenchmark();
+                // Maximum number of cycles
+                for (int cycle = 0; cycle < MaxCycles; cycle++)
+                {
+                    EmployedBeePhase();
+                    OnlookerBeePhase();
+                    ScoutBeePhase();
+                    // Print best solution
+                    int best = GetBestFoodIndex();
+                    FileLogger.logInfo($"Cycle {cycle + 1}, Best fitness = {Fitness[best]:F5}");
+                }
+                int finalBest = GetBestFoodIndex();
+                FileLogger.logInfo("Best solution found:");
+                FileLogger.logInfo($"x = {string.Join(", ", Foods[finalBest])}, fitness = {Fitness[finalBest]:F5}");
             }
-            int finalBest = GetBestFoodIndex();
-            Console.WriteLine("Best solution found:");
-            Console.WriteLine($"x = {string.Join(", ", Foods[finalBest])}, fitness = {Fitness[finalBest]:F5}");
+            catch (Exception ex)
+            {
+
+                FileLogger.LogError("Oti laana lori ", ex.StackTrace!);
+            }
+           
         }
 
 
@@ -192,52 +201,52 @@ namespace ABC_Algorithm
 
                 case BenchmarkType.RotatedElliptic:
                     int n = solution.Length;
-                    double sum = 0.0;
+                    var sum = 0.0;
                     for (int i = 0; i < n; i++)
                     {
                         double factor = Math.Pow(1e6, i / (double)(n - 1));
                         sum += factor * solution[i] * solution[i];
                     }
-                    return sum;
+                    return sum; 
                 
                 case BenchmarkType.RotatedBentCigar:
-                    double sum = solution[0] * solution[0];
+                    var sumCigar = solution[0] * solution[0];
                     for (int i = 1; i < solution.Length; i++)
-                        sum += 1e6 * solution[i] * solution[i];
-                    return sum;
+                        sumCigar += 1e6 * solution[i] * solution[i];
+                    return sumCigar;
 
                 case BenchmarkType.RotatedDiscus:
-                    double sum = 1e6 * solution[0] * solution[0];
+                    var  sumDiscuss = 1e6 * Math.Pow(solution[0], 2);
                     for (int i = 1; i < solution.Length; i++)
-                        sum += solution[i] * solution[i];
-                    return sum;
+                        sumDiscuss += solution[i] * solution[i];
+                    return sumDiscuss;
 
                 case BenchmarkType.DifferentPowers:
-                    int n = solution.Length;
-                    double sum = 0.0;
-                    for (int i = 0; i < n; i++)
+                    int n1 = solution.Length;
+                    var sumPowers = 0.0;
+                    for (int i = 0; i < n1; i++)
                     {
-                        double exponent = 2.0 + 4.0 * i / (n - 1.0);
-                        sum += Math.Pow(Math.Abs(solution[i]), exponent);
+                        double exponent = 2.0 + (4.0 * (i- 1 / (n1 - 1.0)));
+                        sumPowers += Math.Pow(Math.Abs(solution[i]), exponent);
                     }
-                    return sum;
+                    return sumPowers;
 
                 case BenchmarkType.Rosenbrock:
-                    double sum = 0;
+                    double sumRosenbrock = 0;
                     for (int i = 0; i < D - 1; i++)
-                        sum += 100 * Math.Pow(solution[i + 1] - solution[i] * solution[i], 2) + Math.Pow(solution[i] - 1, 2);
-                    return sum;
+                        sumRosenbrock += 100 * Math.Pow(solution[i + 1] - solution[i] * solution[i], 2) + Math.Pow(solution[i] - 1, 2);
+                    return sumRosenbrock;
                 
                 case BenchmarkType.SchafferF7:
-                    double sum = 0.0;
+                    double sumSchafferF7 = 0.0;
                     for (int i = 0; i < solution.Length - 1; i++)
                         {
                             double xi = solution[i];
                             double xi1 = solution[i + 1];
                             double temp = Math.Sqrt(xi * xi + xi1 * xi1);
-                            sum += Math.Pow(temp, 0.5) + Math.Pow(Math.Sin(50 * Math.Pow(temp, 0.2)), 2);
+                        sumSchafferF7 += Math.Pow(temp, 0.5) + Math.Pow(Math.Sin(50 * Math.Pow(temp, 0.2)), 2);
                         }
-                    return Math.Pow(sum / (solution.Length - 1), 2);
+                    return Math.Pow(sumSchafferF7 / (solution.Length - 1), 2);
 
                 case BenchmarkType.Ackley:
                     double sumSq = solution.Sum(x => x * x);
@@ -255,24 +264,28 @@ namespace ABC_Algorithm
                     int kMax = 20;
                     double a = 0.5;
                     double b = 3.0;
-                    int n = solution.Length;
-
-                    double sum = 0.0;
-                    for (int i = 0; i < n; i++)
+                    int len = solution.Length;
+                    FileLogger.logInfo(string.Format("Weierstrass Function got here  \n solution Length ={0}", len));
+                    double sumWeierstrass = 0.0;
+                   
+                    for (int i = 0; i < len; i++)
                     {
                         for (int k = 0; k <= kMax; k++)
                         {
-                            sum += Math.Pow(a, k) * Math.Cos(2 * Math.PI * Math.Pow(b, k) * (x[i] + 0.5));
+                            sumWeierstrass += Math.Pow(a, k) * Math.Cos(2 * Math.PI * Math.Pow(b, k) * (solution[i] + 0.5));
                         }
                     }
+                    FileLogger.logInfo(string.Format("Evaluating sumWeierstrass got here  ={0}", sumWeierstrass));
 
                     double sum2 = 0.0;
                     for (int k = 0; k <= kMax; k++)
                     {
-                        sum2 += Math.Pow(a, k) * Math.Cos(Math.PI * Math.Pow(b, k));
+                        sum2 += Math.Pow(a, k) * Math.Cos(2 * Math.PI * Math.Pow(b, k) * 0.5);
                     }
 
-                    return sum - n * sum2;
+                    FileLogger.logInfo(string.Format("Return Result  got here  ={0}", sumWeierstrass - (len * sum2)));
+
+                    return sumWeierstrass - (len * sum2);
 
                 case BenchmarkType.Rastrigin:
                     return 10 * D + solution.Sum(x => x * x - 10 * Math.Cos(2 * Math.PI * x));

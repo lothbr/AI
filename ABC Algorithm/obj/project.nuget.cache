@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CuE0jmCjiy8=",
+  "dgSpecHash": "nb8BJm98I6A=",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\source\\Personal\\AI\\ABC Algorithm\\ABC Algorithm.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\serilog\\4.3.0\\serilog.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\serilog.sinks.file\\7.0.0\\serilog.sinks.file.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

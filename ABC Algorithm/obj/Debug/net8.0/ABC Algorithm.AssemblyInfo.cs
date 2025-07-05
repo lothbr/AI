@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ABC Algorithm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b33d629b0c73ef3cbb155ceeb91f2a20c550b102")]
 [assembly: System.Reflection.AssemblyProductAttribute("ABC Algorithm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ABC Algorithm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
