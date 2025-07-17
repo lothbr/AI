@@ -151,7 +151,6 @@ namespace ABC_Algorithm.Objectives
                     double a = 0.5;
                     double b = 3.0;
                     int len = solution.Length;
-                    //FileLogger.logInfo(string.Format("Weierstrass Function got here  \n solution Length ={0}", len));
                     double sumWeierstrass = 0.0;
 
                     for (int i = 0; i < len; i++)
@@ -161,15 +160,12 @@ namespace ABC_Algorithm.Objectives
                             sumWeierstrass += Math.Pow(a, k) * Math.Cos(2 * Math.PI * Math.Pow(b, k) * (solution[i] + 0.5));
                         }
                     }
-                   // FileLogger.logInfo(string.Format("Evaluating sumWeierstrass got here  ={0}", sumWeierstrass));
 
                     double sum2 = 0.0;
                     for (int k = 0; k <= kMax; k++)
                     {
                         sum2 += Math.Pow(a, k) * Math.Cos(2 * Math.PI * Math.Pow(b, k) * 0.5);
                     }
-
-                    //FileLogger.logInfo(string.Format("Return Result  got here  ={0}", sumWeierstrass - (len * sum2)));
 
                     return sumWeierstrass - (len * sum2);
 
@@ -187,22 +183,22 @@ namespace ABC_Algorithm.Objectives
                             z[i] = 0.5 * solution[i];
                         }
 
-                        double prod = 1.0;
+                        var product = 1.0;
 
                         for (int i = 0; i < D; i++)
                         {
-                            double sum = 0.0;
+                            double sumRotatedKatsuura = 0.0;
 
                             for (int j = 1; j <= 32; j++)
                             {
                                 double term = Math.Pow(2, j) * z[i];
-                                sum += Math.Abs(term - Math.Round(term)) / Math.Pow(2, j);
+                                sumRotatedKatsuura += Math.Abs(term - Math.Round(term)) / Math.Pow(2, j);
                             }
 
-                            prod *= Math.Pow(1.0 + (i + 1) * sum, 10.0 / Math.Pow(D, 1.2));
+                            product *= Math.Pow(1.0 + (i + 1) * sumRotatedKatsuura, 10.0 / Math.Pow(D, 1.2));
                         }
 
-                        double result = (prod - 1.0) * (10.0 / (D * D));
+                        double result = (product - 1.0) * (10.0 / (D * D));
                         return result;
                     }
 

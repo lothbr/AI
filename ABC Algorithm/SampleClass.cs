@@ -263,21 +263,21 @@ namespace ABC_Algorithm
                     return sumWeierstrass - (solution.Length * sum2);
                 case BenchmarkType.Rastrigin:
                     return 10 * D + solution.Sum(x => x * x - 10 * Math.Cos(2 * Math.PI * x));
-				case BenchmarkType.RotatedKatsuura:
-					{
-						double[] z = LambdaTransform(MatrixMultiply(solution, M), o);
-						double prod = 1.0;
-						for (int i = 0; i < z.Length; i++)
-						{
-							double sum = 0.0;
-							for (int j = 1; j <= 32; j++)
-							{
-								sum += Math.Abs(Math.Pow(2, j) * z[i] - Math.Round(Math.Pow(2, j) * z[i])) / Math.Pow(2, j);
-							}
-							prod *= Math.Pow(1.0 + (i + 1) * sum, 10.0 / Math.Pow(D, 1.2));
-						}
-						return (prod - 1.0) * (10.0 / D / D);
-					}
+                //case BenchmarkType.RotatedKatsuura:
+                //	{
+                //		double[] z = LambdaTransform(MatrixMultiply(solution, M), o);
+                //		double prod = 1.0;
+                //		for (int i = 0; i < z.Length; i++)
+                //		{
+                //			double sum = 0.0;
+                //			for (int j = 1; j <= 32; j++)
+                //			{
+                //				sum += Math.Abs(Math.Pow(2, j) * z[i] - Math.Round(Math.Pow(2, j) * z[i])) / Math.Pow(2, j);
+                //			}
+                //			prod *= Math.Pow(1.0 + (i + 1) * sum, 10.0 / Math.Pow(D, 1.2));
+                //		}
+                //		return (prod - 1.0) * (10.0 / D / D);
+                //	}
                 default:
                     return double.MaxValue;
             }

@@ -53,7 +53,8 @@ namespace ABC_AlgorithmAPI.Controllers
                     "Ackley",
                     "Weierstrass",
                     "Griewank",
-                    "Rastrigin"
+                    "Rastrigin",
+                    "RotatedKatsuura"
                 }
            });
 
