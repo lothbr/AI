@@ -21,11 +21,11 @@ namespace ABC_Algorithm
 
         public  void Initialize(int foodSource, int d, ref double[][] foodSources, ref double[] Fitness, ref int[] trials, double lowerBound, double upperBound)
         {
-            // Ensure foodSources is allocated
-            if (foodSources == null || foodSources.Length != foodSource || foodSources.Any(row => row == null || row.Length != d))
-            {
-                throw new ArgumentException("foodSources must be pre-allocated with dimensions [foodSource, d]");
-            }
+            //// Ensure foodSources is allocated
+            //if (foodSources == null || foodSources.Length != foodSource || foodSources.Any(row => row == null || row.Length != d))
+            //{
+            //    throw new ArgumentException("foodSources must be pre-allocated with dimensions [foodSource, d]");
+            //}
 
             for (int i = 0; i < foodSource; i++)
             {
@@ -33,7 +33,7 @@ namespace ABC_Algorithm
                 {
                     foodSources[i][j] = lowerBound + rand.NextDouble() * (upperBound - lowerBound);
                 }
-                Fitness[i] = 1.0 / (1.0 + _objectiveFunction.CalculateObjective(foodSources[i]));
+                Fitness[i] = 1.0 / (1.0 + _objectiveFunction.EvaluateObjectiveCost(foodSources[i]));
                 trials[i] = 0; // Reset trial counter
             }
         }

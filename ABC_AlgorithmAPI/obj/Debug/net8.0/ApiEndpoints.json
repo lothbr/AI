@@ -18,16 +18,26 @@
         "IsRequired": false
       },
       {
-        "Name": "Limit",
+        "Name": "MaxCycles",
         "Type": "System.Int32",
         "IsRequired": false
       },
       {
-        "Name": "MaxCycles",
-        "Type": "System.Int32",
+        "Name": "BenchmarkFunction",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ABC_AlgorithmAPI.Controllers.ABCAlgorithmController",
+    "Method": "GetBenchMark",
+    "RelativePath": "api/ABCAlgorithm/GetBenchMark-Functions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

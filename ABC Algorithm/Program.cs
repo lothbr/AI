@@ -15,9 +15,9 @@ internal class Program
 
         var app = builder.Build();
 
-        var AbcAlgorithm = new ArtificialBeeColony();
+        //var AbcAlgorithm = new ArtificialBeeColony();
 
-        AbcAlgorithm.Start();
+        //AbcAlgorithm.Start();
 
         app.MapGet("/", () => "Welcome to my AI Algorithm Solution");
 

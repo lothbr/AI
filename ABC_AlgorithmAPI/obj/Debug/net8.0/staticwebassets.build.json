@@ -1,11 +1,34 @@
 {
   "Version": 1,
-  "Hash": "GBVuF2Eilr5k6QHt/O7OJ4eNbV8W63Xk7KNMV2BGrZ4=",
+  "Hash": "wXXWzAcWnJQlGkXXJtJnAoVnHDMDBfrVDYyHXu7j33s=",
   "Source": "ABC_AlgorithmAPI",
   "BasePath": "_content/ABC_AlgorithmAPI",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\HP\\source\\Personal\\AI\\ABC Algorithm\\ABC Algorithm.csproj",
+      "Version": 2,
+      "Source": "ABC Algorithm",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\source\\Personal\\AI\\ABC Algorithm\\ABC Algorithm.csproj",
+      "Version": 2,
+      "Source": "ABC Algorithm",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": [],
   "Endpoints": []
