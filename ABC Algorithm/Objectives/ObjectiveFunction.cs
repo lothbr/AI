@@ -1,4 +1,4 @@
-﻿using ABC_Algorithm.BenchMarks;
+using ABC_Algorithm.BenchMarks;
 
 namespace ABC_Algorithm.Objectives
 {
@@ -177,21 +177,35 @@ namespace ABC_Algorithm.Objectives
                     return 10 * OptimizationParameters + solution.Sum(x => x * x - 10 * Math.Cos(2 * Math.PI * x));
 
 				case BenchmarkType.RotatedKatsuura:
-					{
-						double[] z = LambdaTransform(solution);
-						double prod = 1.0;
-						int D = z.Length;
-						for (int i = 0; i < D; i++)
-						{
-							double sum = 0.0;
-							for (int j = 1; j <= 32; j++)
-							{
-								sum += Math.Abs(Math.Pow(2, j) * z[i] - Math.Round(Math.Pow(2, j) * z[i])) / Math.Pow(2, j);
-							}
-							prod *= Math.Pow(1.0 + (i + 1) * sum, 10.0 / Math.Pow(D, 1.2));
-						}
-						return (prod - 1.0) * (10.0 / D / D);
-					}
+                    {
+                        int D = solution.Length;
+
+                        // Inline Lambda transform: z[i] = 0.5 * x[i]
+                        double[] z = new double[D];
+                        for (int i = 0; i < D; i++)
+                        {
+                            z[i] = 0.5 * solution[i];
+                        }
+
+                        double prod = 1.0;
+
+                        for (int i = 0; i < D; i++)
+                        {
+                            double sum = 0.0;
+
+                            for (int j = 1; j <= 32; j++)
+                            {
+                                double term = Math.Pow(2, j) * z[i];
+                                sum += Math.Abs(term - Math.Round(term)) / Math.Pow(2, j);
+                            }
+
+                            prod *= Math.Pow(1.0 + (i + 1) * sum, 10.0 / Math.Pow(D, 1.2));
+                        }
+
+                        double result = (prod - 1.0) * (10.0 / (D * D));
+                        return result;
+                    }
+
 					
                 default:
                     return double.MaxValue;
