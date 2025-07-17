@@ -32,3 +32,6 @@ C:\Users\HP\source\Personal\AI\ABC Algorithm\bin\Debug\net8.0\Serilog.Sinks.File
 C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.csproj.AssemblyReference.cache
 C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.sourcelink.json
 C:\Users\HP\source\Personal\AI\ABC Algorithm\obj\Debug\net8.0\ABC Algo.CEC67B12.Up2Date
+C:\Users\Samuel Victor\Documents\MSc\AI-develop\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.dll
+C:\Users\Samuel Victor\Documents\MSc\AI-develop\ABC Algorithm\obj\Debug\net8.0\refint\ABC Algorithm.dll
+C:\Users\Samuel Victor\Documents\MSc\AI-develop\ABC Algorithm\obj\Debug\net8.0\ABC Algorithm.pdb

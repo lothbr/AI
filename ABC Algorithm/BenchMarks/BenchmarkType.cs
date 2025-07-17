@@ -14,6 +14,7 @@
         Ackley, 
         Weierstrass,
         Griewank,
-        Rastrigin, 
+        Rastrigin,
+		RotatedKatsuura,
     }
 }

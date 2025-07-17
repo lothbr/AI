@@ -71,6 +71,11 @@ namespace ABC_Algorithm.Objectives
                     LowerBound = -5.12;
                     UpperBound = 5.12;
                     break;
+				case BenchmarkType.RotatedKatsuura:
+					OptimizationParameters = 30;
+					LowerBound = -5;
+					UpperBound = 5;
+					break;
             }
         }
         public double CalculateObjective(double[] solution)
@@ -171,6 +176,23 @@ namespace ABC_Algorithm.Objectives
                 case BenchmarkType.Rastrigin:
                     return 10 * OptimizationParameters + solution.Sum(x => x * x - 10 * Math.Cos(2 * Math.PI * x));
 
+				case BenchmarkType.RotatedKatsuura:
+					{
+						double[] z = LambdaTransform(solution);
+						double prod = 1.0;
+						int D = z.Length;
+						for (int i = 0; i < D; i++)
+						{
+							double sum = 0.0;
+							for (int j = 1; j <= 32; j++)
+							{
+								sum += Math.Abs(Math.Pow(2, j) * z[i] - Math.Round(Math.Pow(2, j) * z[i])) / Math.Pow(2, j);
+							}
+							prod *= Math.Pow(1.0 + (i + 1) * sum, 10.0 / Math.Pow(D, 1.2));
+						}
+						return (prod - 1.0) * (10.0 / D / D);
+					}
+					
                 default:
                     return double.MaxValue;
             }
