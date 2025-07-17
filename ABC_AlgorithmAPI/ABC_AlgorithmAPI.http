@@ -1,0 +1,6 @@
+@ABC_AlgorithmAPI_HostAddress = http://localhost:5041
+
+GET {{ABC_AlgorithmAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

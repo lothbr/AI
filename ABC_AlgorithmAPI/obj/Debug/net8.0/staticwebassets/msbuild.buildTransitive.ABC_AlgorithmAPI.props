@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ABC_AlgorithmAPI.props" />
+</Project>
