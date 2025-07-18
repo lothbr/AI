@@ -33,10 +33,7 @@ namespace ABC_Algorithm
                 {
                     foodSources[i][j] = lowerBound + rand.NextDouble() * (upperBound - lowerBound);
                 }
-                var fi = _objectiveFunction.EvaluateObjectiveCost(foodSources[i]);
-                if (fi >= 0) Fitness[i] = 1.0 / (1.0 + fi);
-                else Fitness[i] = (1 + Math.Abs(fi));
-
+                Fitness[i] = _objectiveFunction.EvaluateObjectiveCost(foodSources[i]);
                 trials[i] = 0; // Reset trial counter
             }
         }
